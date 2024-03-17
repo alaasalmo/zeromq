@@ -1,0 +1,17 @@
+pv --> pvc --> pod
+
+minikube ssh
+sudo mkdir /mnt/data
+sudo sh -c "echo 'Hello from Kubernetes storage' > /mnt/data/index.html"
+exit
+
+kubectl apply -f pv.yaml
+kubectl apply -f pvc.yaml
+kubectl apply -f pod.yaml
+
+kubectl apply -f zeromq-server.yaml
+kubectl apply -f zeromq-client1.yaml
+kubectl apply -f zeromq-client2.yaml
+
+Referece: https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage
+

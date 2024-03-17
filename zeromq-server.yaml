@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zeromq-server-deployment
+spec:
+  selector:
+    matchLabels:
+      app: zeromq
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zeromq
+    spec:
+      containers:
+      - name: zeromq-server
+        image: registry.hub.docker.com/alaasalmo/zeromq-server:v2
+        volumeMounts:
+        - mountPath: /logs
+          name: zvolume
+      volumes:
+      - name: zvolume
+        persistentVolumeClaim:
+          claimName: zeromq-pvc

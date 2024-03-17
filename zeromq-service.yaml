@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: server
+spec:
+  type: ClusterIP
+  # Uncomment the below line to create a Headless Service
+  # clusterIP: None
+  selector:
+    app: zeromq
+  ports:
+  - protocol: TCP
+    port: 5555
+    targetPort: 5555
