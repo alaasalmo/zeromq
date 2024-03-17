@@ -36,3 +36,19 @@ kubectl apply -f zeromq-client1.yaml
 kubectl apply -f zeromq-client2.yaml
 
 
+
+Publish-subscribe pattern
+The publish-subscribe pattern is used for one-to-many distribution of data from a single publisher to multiple subscribers in a fan out fashion.
+The publish-subscribe pattern is formally defined by RFC 29/PUBSUB.
+ZeroMQ comes with support for Pub/Sub by way of four socket types:
+    PUB Socket Type
+    XPUB Socket Type
+    SUB Socket Type
+    XSUB Socket Type
+
+
+Client-server pattern
+Note: This pattern is still in draft state and thus might not be supported by the zeromq library you’re using!
+The client-server pattern is used to allow a single SERVER server talk to one or more CLIENT clients. The client always starts the conversation, after which either peer can send messages asynchronously, to the other.
+The client-server pattern is formally defined by RFC 41/CLISRV.
+
